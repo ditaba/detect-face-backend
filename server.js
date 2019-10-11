@@ -1,3 +1,4 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
@@ -26,6 +27,10 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json());
 
+console.log(`Your port is ${process.env.PORT}`);
+dotenv.config();
+console.log(`Your port is ${process.env.PORT}`);
+
 // app.get('/', (req, res)=> { res.send(database.users) });
 app.get('/', (req, res)=> { res.send('It is OK!') });
 app.post('/signin', signin.handleSignin(db, bcrypt));
@@ -35,6 +40,6 @@ app.put('/image', (req, res) => { image.handleImage(req, res, db)});
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res)});
 app.get('/test', (req,res)=>{res.send('Hello alibaba')});
 // app.post('/signin', (req,res)=> {res.send('Signin')});
-app.listen(process.env.PORT || 3000, ()=> {
+app.listen(process.env.PORT || 4000, ()=> {
   console.log('app is running on port '+process.env.PORT);
 })
