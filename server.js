@@ -10,14 +10,27 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
+// [Heroku] Config for Heroku
+// const db = knex({
+//   client: 'pg',
+//   connection: {
+//     connectionString: process.env.DATABASE_URL,
+//     ssl: true,
+//   }
+// });
+
+// [localhost] Config to connect to localhost
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
+    host : '127.0.0.1',
+    user : 'postgres',
+    password : 'root',
+    database : 'smart-brain'
   }
 });
 
+// [localhost] Check whether the connection is establish or not
 // console.log("Hello");
 // console.log(db.select('*').from('users'));
 // db.select('*').from('users').then(data=>{console.log(data)});
@@ -26,10 +39,7 @@ const app = express();
 
 app.use(cors())
 app.use(bodyParser.json());
-
-console.log(`Your port is ${process.env.PORT}`);
 dotenv.config();
-console.log(`Your port is ${process.env.PORT}`);
 
 // app.get('/', (req, res)=> { res.send(database.users) });
 app.get('/', (req, res)=> { res.send('It is OK!') });
