@@ -20,20 +20,28 @@ const image = require('./controllers/image');
 // });
 
 // [localhost] Config to connect to localhost
+// console.log(process.env.POSTGRES_USER);
 const db = knex({
   client: 'pg',
-  connection: {
-    host : '127.0.0.1',
-    user : 'postgres',
-    password : 'root',
-    database : 'smart-brain'
-  }
+  // connection: {
+    // host : '127.0.0.1',
+    // user : 'postgres',
+    // password : 'root',
+    // database : 'smart-brain'
+    // host: process.env.POSTGRES_HOST,
+    // user: process.env.POSTGRES_USER,
+    // password: process.env.POSTGRES_PASSWORD,
+    // database: process.env.POSTGRES_DB
+  // }
+  connection: process.env.POSTGRES_URI
 });
 
 // [localhost] Check whether the connection is establish or not
-// console.log("Hello");
-// console.log(db.select('*').from('users'));
-// db.select('*').from('users').then(data=>{console.log(data)});
+ console.log("Hello");
+ // console.log(db.select('*').from('users'));
+ // console.log(db.select('*').from('login'));
+ // db.select('*').from('users').then(data=>{console.log(data)});
+ // db.select('*').from('login').then(date=>{console.log(data)});
 
 const app = express();
 
@@ -41,6 +49,7 @@ app.use(cors())
 app.use(bodyParser.json());
 dotenv.config();
 
+console.log('Hello world');
 // app.get('/', (req, res)=> { res.send(database.users) });
 app.get('/', (req, res)=> { res.send('It is OK!') });
 app.post('/signin', signin.handleSignin(db, bcrypt));
