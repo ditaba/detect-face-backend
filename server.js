@@ -20,7 +20,7 @@ const image = require('./controllers/image');
 // });
 
 // [localhost] Config to connect to localhost
-// console.log(process.env.POSTGRES_USER);
+ console.log(process.env.POSTGRES_USER);
 const db = knex({
   client: 'pg',
   // connection: {
@@ -50,8 +50,9 @@ app.use(bodyParser.json());
 dotenv.config();
 
 console.log('Hello world');
+console.log(process.env.POSTGRES_URI);
 // app.get('/', (req, res)=> { res.send(database.users) });
-app.get('/', (req, res)=> { res.send('It is OK!') });
+app.get('/', (req, res)=> { res.send('It is OK!!!!') });
 app.post('/signin', signin.handleSignin(db, bcrypt));
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db)});
