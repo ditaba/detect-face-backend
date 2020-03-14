@@ -10,6 +10,10 @@ services:
     working_dir: /home/dita/detect_face_backend 
     environment:
       POSTGRES_URI: postgres://sally:secret@postgres:5432/smart_brain_docker
+      REDIS_URI: redis://redis:6379
+    links: 
+      - postgres
+      - redis
     ports:
       - "4000:4000"
     volumes:
@@ -23,7 +27,17 @@ services:
       POSTGRES_PASSWORD: secret
       POSTGRES_DB: smart_brain_docker
       POSTGRES_HOST: postgres
+    # image: postgres
     build: ./postgres
     ports:
       - "5432:5432"
+
+  # Redis
+  redis:
+    container_name: redis
+    # command: redis-server
+    image: redis
+    #build: ./redis
+    ports:
+      - "6379:6379"
       
