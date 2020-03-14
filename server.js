@@ -19,21 +19,21 @@ const image = require('./controllers/image');
 //   }
 // });
 
-// [localhost] Config to connect to localhost
+// [localhost] Config to connect to localhost for start by docker or not
  console.log(process.env.POSTGRES_USER);
 const db = knex({
   client: 'pg',
-  // connection: {
-    // host : '127.0.0.1',
-    // user : 'postgres',
-    // password : 'root',
-    // database : 'smart-brain'
+  connection: {
+    host : '127.0.0.1',
+    user : 'postgres',
+    password : 'root',
+    database : 'smart-brain'
     // host: process.env.POSTGRES_HOST,
     // user: process.env.POSTGRES_USER,
     // password: process.env.POSTGRES_PASSWORD,
     // database: process.env.POSTGRES_DB
-  // }
-  connection: process.env.POSTGRES_URI
+  }
+  // connection: process.env.POSTGRES_URI
 });
 
 // [localhost] Check whether the connection is establish or not
@@ -53,9 +53,10 @@ console.log('Hello world');
 console.log(process.env.POSTGRES_URI);
 // app.get('/', (req, res)=> { res.send(database.users) });
 app.get('/', (req, res)=> { res.send('It is OK!!!!') });
-app.post('/signin', signin.handleSignin(db, bcrypt));
+app.post('/signin', signin.signinAuthentication(db, bcrypt));
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db)});
+app.post('/profile/:id', (req, res) => { profile.handleProfileUpdate(req, res, db) });
 app.put('/image', (req, res) => { image.handleImage(req, res, db)});
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res)});
 app.get('/test', (req,res)=>{res.send('Hello alibaba')});
