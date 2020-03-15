@@ -13,4 +13,8 @@ You can grab Clarifai API key [here](https://www.clarifai.com/)
 # Start backend with Docker-compose file
 ```
 $ docker-compose up --build
+
+If it can not start backend container, it should connect to container of backend and install packages manually.
+$ docker exec -it backend /bin/bash
+$ npm install
 ```
