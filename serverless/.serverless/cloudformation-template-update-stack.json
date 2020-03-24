@@ -144,7 +144,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/rankly-lamda-offical/prod/1585008355479-2020-03-24T00:05:55.479Z/rankly-lamda-offical.zip"
+          "S3Key": "serverless/rankly-lamda-offical/prod/1585064957807-2020-03-24T15:49:17.807Z/rankly-lamda-offical.zip"
         },
         "FunctionName": "rankly-lamda-offical-prod-rank",
         "Handler": "handler.rank",
@@ -163,14 +163,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "RankLambdaVersiontkzNLYP3TDh9T9QJRoDv0x9m7a4YbvEvLu1Nudg": {
+    "RankLambdaVersionLO3kYWEpsT5MN1I9IlXorKohvtf4uAdQmOtuSud8A": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RankLambdaFunction"
         },
-        "CodeSha256": "vTCfme4CZ3tipJQfYfLEBRHtq8JJmtO08/v7ZHF7rLs="
+        "CodeSha256": "ZRkf/YQFGwxUAT6+m7/p6T0mWfnDXzwXwEe/KbQgNgU="
       }
     },
     "ApiGatewayRestApi": {
@@ -243,7 +243,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1585008353647": {
+    "ApiGatewayDeployment1585064956507": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -302,7 +302,7 @@
     "RankLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RankLambdaVersiontkzNLYP3TDh9T9QJRoDv0x9m7a4YbvEvLu1Nudg"
+        "Ref": "RankLambdaVersionLO3kYWEpsT5MN1I9IlXorKohvtf4uAdQmOtuSud8A"
       }
     },
     "ServiceEndpoint": {
