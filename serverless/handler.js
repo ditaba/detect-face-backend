@@ -12,7 +12,7 @@ module.exports.rank = async event => {
     },
     body: JSON.stringify(
       {
-        message: 'Go Serverless v1.0! Your function executed successfully!',
+        message: '[*][Ubuntu] Go Serverless v1.0! Your function executed successfully!',
         // input: event
         input: rankEmoji
       },
