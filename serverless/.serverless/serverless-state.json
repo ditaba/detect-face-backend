@@ -158,7 +158,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/rankly-lamda-offical/prod/1584280295479-2020-03-15T13:51:35.479Z/rankly-lamda-offical.zip"
+                "S3Key": "serverless/rankly-lamda-offical/prod/1585008355479-2020-03-24T00:05:55.479Z/rankly-lamda-offical.zip"
               },
               "FunctionName": "rankly-lamda-offical-prod-rank",
               "Handler": "handler.rank",
@@ -177,14 +177,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "RankLambdaVersionJrJUXczzlvNaCg6wujUWSkZdajcrK5JBrzcuoGUEF8": {
+          "RankLambdaVersiontkzNLYP3TDh9T9QJRoDv0x9m7a4YbvEvLu1Nudg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RankLambdaFunction"
               },
-              "CodeSha256": "OMiAUC4C4snAKacQ3HeoEFwBX8Is3xoN/3Qrb8TzJKY="
+              "CodeSha256": "vTCfme4CZ3tipJQfYfLEBRHtq8JJmtO08/v7ZHF7rLs="
             }
           },
           "ApiGatewayRestApi": {
@@ -257,7 +257,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1584280293673": {
+          "ApiGatewayDeployment1585008353647": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -316,7 +316,7 @@
           "RankLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RankLambdaVersionJrJUXczzlvNaCg6wujUWSkZdajcrK5JBrzcuoGUEF8"
+              "Ref": "RankLambdaVersiontkzNLYP3TDh9T9QJRoDv0x9m7a4YbvEvLu1Nudg"
             }
           },
           "ServiceEndpoint": {
@@ -432,16 +432,16 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "RankLambdaVersionJrJUXczzlvNaCg6wujUWSkZdajcrK5JBrzcuoGUEF8"
+        "versionLogicalId": "RankLambdaVersiontkzNLYP3TDh9T9QJRoDv0x9m7a4YbvEvLu1Nudg"
       }
     },
     "serviceFilename": "serverless.yml",
     "layers": {},
     "isDashboardMonitoringPreconfigured": false,
-    "artifact": "D:\\study\\udemy\\reactjs\\detect_face_backend\\serverless\\.serverless\\rankly-lamda-offical.zip"
+    "artifact": "/home/dita/detect-face-backend/serverless/.serverless/rankly-lamda-offical.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/rankly-lamda-offical/prod/1584280295479-2020-03-15T13:51:35.479Z",
+    "artifactDirectoryName": "serverless/rankly-lamda-offical/prod/1585008355479-2020-03-24T00:05:55.479Z",
     "artifact": "rankly-lamda-offical.zip"
   }
 }
