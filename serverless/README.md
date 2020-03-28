@@ -38,4 +38,5 @@ $ sls deploy
 
 ```
 https://serverless.com/framework/docs/providers/aws/guide/iam/
+https://serverless.com/framework/docs/providers/aws/events/apigateway/
 ```
