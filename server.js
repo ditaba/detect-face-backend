@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
+const _db_ = require('./db');
+
+_db_.initDB();
+const db = _db_.getDB();
 
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
@@ -11,45 +15,11 @@ const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 const auth = require('./controllers/authorization');
 
-const authRoutes = require('./routes/auth');
-
-// [Heroku] Config for Heroku
-// const db = knex({
-//   client: 'pg',
-//   connection: {
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: true,
-//   }
-// });
-
-// [localhost] Config to connect to localhost for start by docker or not
-console.log(process.env.POSTGRES_USER);
-const db = knex({
-  client: 'pg',
-  // connection: {
-  // host : '127.0.0.1',
-  // user : 'postgres',
-  // password : 'root',
-  // database : 'smart-brain'
-  // host: process.env.POSTGRES_HOST,
-  // user: process.env.POSTGRES_USER,
-  // password: process.env.POSTGRES_PASSWORD,
-  // database: process.env.POSTGRES_DB
-  // }
-  connection: process.env.POSTGRES_URI,
-});
-
-// [localhost] Check whether the connection is establish or not
-// console.log(db.select('*').from('users'));
-// console.log(db.select('*').from('login'));
-// db.select('*').from('users').then(data=>{console.log(data)});
-// db.select('*').from('login').then(date=>{console.log(data)});
-
 const app = express();
-
+const authRoutes = require('./routes/auth');
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/auth', authRoutes(db, bcrypt));
+app.use('/auth', authRoutes);
 
 dotenv.config();
 
