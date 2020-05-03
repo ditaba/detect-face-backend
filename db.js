@@ -14,6 +14,7 @@ const initDB = () => {
 
   // [localhost] Config to connect to localhost for start by docker or not
   console.log(process.env.POSTGRES_USER);
+  console.log(process.env.POSTGRES_URI);
   _db = knex({
     client: 'pg',
     // connection: {
